@@ -1,4 +1,4 @@
-# Phân tích và Dự đoán Tỷ lệ nghỉ việc của nhân viên (Employee Attrition Analysis & Prediction)
+# I. Phân tích và Dự đoán Tỷ lệ nghỉ việc của nhân viên bằng Python (Employee Attrition Analysis & Prediction)
 
 ## Mô tả
 
@@ -73,5 +73,50 @@ Dữ liệu sử dụng từ tập `HR-Employee.csv` bao gồm 1470 mẫu và 35
 
 ---
 
-Thực hiện bởi: Hoang Phuc Nhat Long
 
+
+# II. HR Dashboard Power BI Project
+## Mô tả dự án
+Dashboard phân tích dữ liệu nhân sự được xây dựng bằng Power BI, dựa trên file dữ liệu HR-Employee.csv. Dashboard tập trung vào các yếu tố như tỷ lệ nghỉ việc, sự hài lòng công việc, tổng thu nhập và làm việc ngoài giờ.
+
+### Các bước thực hiện
+1. Tải dữ liệu
+
+Sử dụng tính năng Get Data → Text/CSV để tải file HR-Employee.csv.
+
+Chọn dấu phân cách là Semicolon (;) và Load dữ liệu.
+
+2. Xử lý dữ liệu
+
+Kiểm tra và chỉnh đúng kiểu dữ liệu cho các cột (số, văn bản, ngày tháng).
+
+3. Xây dựng biểu đồ
+
+Donut Chart: Phân tích tỷ lệ nghỉ việc (Attrition) theo số lượng nhân viên (EmployeeNumber).
+
+Column Chart: Phân tích mức độ hài lòng công việc (JobSatisfaction).
+
+Stacked Bar Chart: Tổng thu nhập trung bình theo phòng ban (MonthlyIncome - Department).
+
+Line and Column Chart: Phân tích mức độ đào tạo và thăng chức (TrainingTimesLastYear và YearsSinceLastPromotion).
+
+Donut Chart thêm: Phân tích tỷ lệ làm việc ngoài giờ (OverTime).
+
+4. Tùy chỉnh giao diện
+
+Thêm slicer cho các trường Gender, Department, EducationField.
+
+Căn chỉnh, bo góc biểu đồ, đặt tiêu đề rõ ràng cho từng biểu đồ.
+
+Sử dụng màu sắc đồng nhất và thân thiện.
+
+5. Lưu dashboard
+
+Lưu dưới dạng .pbix hoặc xuất ra file PDF.
+
+*** Ghi chú
+Tất cả biểu đồ đều hiển thị dữ liệu theo tỷ lệ phần trăm và số lượng để tăng độ trực quan.
+
+Dashboard hỗ trợ bộ lọc đa chiều, giúp phân tích chi tiết theo phòng ban, giới tính và trình độ học vấn.
+
+Thực hiện bởi: Hoang Phuc Nhat Long
