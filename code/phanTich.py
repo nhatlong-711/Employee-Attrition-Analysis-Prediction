@@ -11,8 +11,6 @@ df_shape = df.shape
 df_describe = df.describe(include='all')
 df_shape, df_head, df_describe
 
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Sao chép DataFrame để xử lý
 df_ml = df.copy()
@@ -58,4 +56,47 @@ plt.show()
 
 sns.boxplot(x='Attrition', y='YearsAtCompany', data=df)
 plt.title('Số năm làm việc theo nghỉ việc')
+plt.show()
+
+
+# Tạo danh sách các biến số (numeric columns) để xem tương quan với Attrition
+numeric_cols = df_ml.select_dtypes(include=['int64', 'float64']).columns.tolist()
+
+# Loại bỏ cột ID hoặc không cần thiết nếu có
+if 'EmployeeNumber' in numeric_cols:
+    numeric_cols.remove('EmployeeNumber')
+
+# Tính hệ số tương quan Pearson giữa Attrition và các biến số
+correlations = df_ml[numeric_cols].corr()['Attrition'].sort_values(ascending=False)
+
+# Vẽ biểu đồ cột
+plt.figure(figsize=(8, 10))
+sns.barplot(y=correlations.index, x=correlations.values, palette='coolwarm')
+plt.title('Tương quan giữa các biến số và nghỉ việc (Attrition)')
+plt.xlabel('Hệ số tương quan với Attrition')
+plt.ylabel('Biến số')
+plt.tight_layout()
+plt.show()
+
+correlations
+
+
+
+# Chọn các cột dạng số
+numeric_cols = df_ml.select_dtypes(include=['int64', 'float64']).columns.tolist()
+
+# Loại bỏ cột không cần thiết nếu có
+if 'EmployeeNumber' in numeric_cols:
+    numeric_cols.remove('EmployeeNumber')
+
+# Tính hệ số tương quan với Attrition
+correlations = df_ml[numeric_cols].corr()['Attrition'].sort_values(ascending=False)
+
+# Vẽ biểu đồ
+plt.figure(figsize=(8, 10))
+sns.barplot(y=correlations.index, x=correlations.values, palette='coolwarm')
+plt.title('Tương quan giữa các biến số và nghỉ việc (Attrition)')
+plt.xlabel('Hệ số tương quan')
+plt.ylabel('Biến số')
+plt.tight_layout()
 plt.show()
